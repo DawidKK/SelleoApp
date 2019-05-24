@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const EventItem = styled.div`
+const EventItemStyle = styled.div`
   border: 1px solid ${props => props.theme.accentColor};
   padding: 1rem;
   .event-item__title {
@@ -14,4 +14,4 @@ const EventItem = styled.div`
   }
 `;
 
-export default EventItem;
+export default EventItemStyle;

@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import Nav from '../components/Header/Nav/Nav';
+
 import ScreensEventList from './List/List';
 import ScreensEventForm from './Event/Form';
-import ScreensHeaderNav from './Header/Nav';
 
 import GlobalStyle from '../components/UI/GlobalStyles';
 import Theme from '../components/UI/Theme';
@@ -17,7 +18,7 @@ const ScreensRoot = ({ store }) => (
       <ThemeProvider theme={Theme}>
         <>
           <GlobalStyle />
-          <ScreensHeaderNav />
+          <Nav />
           <Inner>
             <Route exact path="/" component={ScreensEventList} />
             <Route path="/form" component={ScreensEventForm} />
