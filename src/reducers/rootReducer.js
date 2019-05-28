@@ -1,3 +1,5 @@
+import { ADD_EVENT } from '../actions/actionTypes';
+
 const initState = {
   events: [
     {
@@ -19,20 +21,22 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  if (action.type === 'ADD_EVENT') {
-    const { id, title, description } = action;
-    let newEvent = {
-      id,
-      title,
-      description
-    };
+  switch (action.type) {
+    case ADD_EVENT:
+      const { id, title, description } = action;
+      let newEvent = {
+        id,
+        title,
+        description
+      };
 
-    return {
-      ...state,
-      events: [...state.events, newEvent]
-    };
+      return {
+        ...state,
+        events: [...state.events, newEvent]
+      };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default rootReducer;

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { withRouter } from 'react-router-dom';
 
 import { addEvent } from '../../../actions/eventFormActions';
 
@@ -26,8 +27,10 @@ const EventForm = props => (
         description: ''
       }}
       validationSchema={EventFormSchema}
-      onSubmit={values => {
+      onSubmit={(values, { resetForm }) => {
         props.addEvent(values);
+        resetForm();
+        props.history.push('/');
       }}
     >
       {({ errors, touched }) => (
@@ -51,7 +54,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(EventForm);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(EventForm)
+);
