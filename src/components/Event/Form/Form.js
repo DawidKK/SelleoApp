@@ -36,10 +36,14 @@ const EventForm = props => (
       {({ errors, touched }) => (
         <Form>
           <Field placeholder="Event title" name="title" />
-          {errors.title && touched.title ? <div>{errors.title}</div> : null}
+          {errors.title && touched.title ? <div className="error">{errors.title}</div> : null}
           <Field component="textarea" placeholder="Event description" name="description" />
-          {errors.description && touched.description ? <div>{errors.description}</div> : null}
-          <button type="submit">SUBMIT EVENT</button>
+          {errors.description && touched.description ? (
+            <div className="error">{errors.description}</div>
+          ) : null}
+          <button id="submit" type="submit">
+            SUBMIT EVENT
+          </button>
         </Form>
       )}
     </Formik>

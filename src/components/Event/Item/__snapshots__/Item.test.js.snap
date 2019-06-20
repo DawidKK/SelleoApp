@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item /> matches snapshot 1`] = `
+<li>
+  <styled.div>
+    <p
+      className="event-item__title"
+    >
+      test
+    </p>
+    <p
+      className="event-item__description"
+    >
+      test description
+    </p>
+  </styled.div>
+</li>
+`;
