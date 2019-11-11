@@ -7,6 +7,7 @@ import Nav from '../components/Header/Nav/Nav';
 
 import ScreensEventList from './List/List';
 import ScreensEventForm from './Event/Form';
+import ScreensCommentsList from './Evaluation/';
 
 import GlobalStyle from '../components/UI/GlobalStyles';
 import Theme from '../components/UI/Theme';
@@ -22,6 +23,7 @@ const ScreensRoot = ({ store }) => (
           <Inner>
             <Route exact path="/" component={ScreensEventList} />
             <Route path="/form" component={ScreensEventForm} />
+            <Route path="/evaluation" component={ScreensCommentsList} />
           </Inner>
         </>
       </ThemeProvider>
