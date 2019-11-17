@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchPostComments } from '../../../store/comments/actions'
+import ListItem from '../../../components/ListItem'
+import CommentsListStyles from './CommentsListStyles'
 
 export const CommentsList = ({ fetchPostComments, comments }) => {
   useEffect(() => {
@@ -11,9 +13,9 @@ export const CommentsList = ({ fetchPostComments, comments }) => {
   return (
     <>
       <h2>Comments</h2>
-      <ul>
-        {comments.map(comment => <li key={comment.id}>{comment.name}</li>)}
-      </ul>
+      <CommentsListStyles>
+        {comments.map(comment => <ListItem key={comment.id}>{comment.name}</ListItem>)}
+      </CommentsListStyles>
     </>
   )
 }

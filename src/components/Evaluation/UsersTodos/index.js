@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import take from 'lodash/take'
 
 import api from '../../../utils/api'
+import ListItem from '../../../components/ListItem'
+import UsersTodosStyles from './UsersTodosStyles'
 
 import { fetchUsersAndTodos } from '../../../store/comments/actions'
 
@@ -18,13 +20,13 @@ export const UsersAndTodos = ({ fetchUsersAndTodos, users, todos }) => {
   return (
     <>
       <h2>Todos</h2>
-      <ul>
-        {todosItems.map(todo => <li key={todo.id}>{todo.title}</li>)}
-      </ul>
+      <UsersTodosStyles>
+        {todosItems.map(todo => <ListItem key={todo.id}>{todo.title}</ListItem>)}
+      </UsersTodosStyles>
       <h2>Users</h2>
-      <ul>
-        {users.map(user => <li key={user.id}>{user.name}</li>)}
-      </ul>
+      <UsersTodosStyles>
+        {users.map(user => <ListItem key={user.id}>{user.name}</ListItem>)}
+      </UsersTodosStyles>
     </>
   )
 }
