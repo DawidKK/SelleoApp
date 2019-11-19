@@ -12,6 +12,12 @@ const HeaderNav = () => {
       <li className="nav-styles__item">
         <Link to="/form">Add Event</Link>
       </li>
+      <li className="nav-styles__item">
+        <Link to="/evaluation">Evaluation</Link>
+      </li>
+      <li className="nav-styles__item">
+        <Link to="/user">User Board</Link>
+      </li>
     </NavStyles>
   );
 };
