@@ -1,4 +1,6 @@
 import React from 'react';
+import Mockdate from 'mockdate'
+import moment from 'moment'
 import { shallow } from 'enzyme';
 import UserBoard from '..';
 
@@ -26,12 +28,22 @@ describe('MyComponent', () => {
       bs: 'harness real-time e-markets'
     }
   }
+
+  const defaultProps = {
+    today: Mockdate.set(moment('11-19-2019'))
+  }
+
   it('renders', () => {
-    const wrapper = shallow(<UserBoard />)
+    const wrapper = shallow(<UserBoard {...defaultProps} />)
     wrapper.instance().fetchUser = Promise.resolve(res)
 
     return wrapper.instance().fetchUser.then(response => {
       expect(response).toEqual(res)
     })
   });
+
+  it('displays proper date', () => {
+    const wrapper = shallow(<UserBoard {...defaultProps} />)
+    expect(wrapper).toMatchSnapshot()
+  })
 });

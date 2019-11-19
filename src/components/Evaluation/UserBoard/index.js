@@ -15,8 +15,10 @@ export class UserBoard extends Component {
   }
 
   render() {
+    const { today } = this.props
     return (
       <div>
+        <h2>Today is {today}</h2>
         {this.state.name}
       </div>
     )
