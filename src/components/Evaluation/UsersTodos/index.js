@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import take from 'lodash/take'
 
@@ -15,6 +15,10 @@ export const UsersAndTodos = ({ fetchUsersAndTodos, users, todos }) => {
       api.source.cancel('Request canceled.')
     };
   }, [])
+
+  useEffect(() => {
+    console.log('Any props has changed')
+  })
 
   const todosItems = take(todos, 10)
   return (
