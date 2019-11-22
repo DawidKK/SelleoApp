@@ -10,6 +10,7 @@ export const fetchPostComments = () => {
   )
 }
 
+/** This fetchs users and todos */
 export const fetchUsersAndTodos = () => {
   return (
     axios
