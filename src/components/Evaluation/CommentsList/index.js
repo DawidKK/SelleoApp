@@ -17,7 +17,7 @@ export const CommentsList = ({ fetchPostComments, comments }) => {
     <>
       <h3>Click counter: {count}</h3>
       <button onClick={() => setCount(count + 1)}>
-        Click to update state
+        Click to update state :D
       </button>
       <h2>Comments</h2>
       <CommentsListStyles>
