@@ -20,12 +20,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <script>
-      var host = "www.selleo-app.herokuapp.com/" || "selleo-app.herokuapp.com/";
-      if ((host == window.location.host) && (window.location.protocol != "https:")){
-      window.location.protocol = "https";
-      }
-    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -40,5 +34,26 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('worker.js').then(function(registration) {
+            console.log('Worker registration successful', registration.scope);
+          }, function(err) {
+            console.log('Worker registration failed', err);
+          }).catch(function(err) {
+            console.log(err);
+          });
+        });
+      } else {
+        console.log('Service Worker is not supported by browser.');
+      }
+    </script>
+    <script>
+      var host = "www.selleo-app.herokuapp.com/" || "selleo-app.herokuapp.com/";
+      if ((host == window.location.host) && (window.location.protocol != "https:")){
+      window.location.protocol = "https";
+      }
+    </script>
   </body>
 </html>
