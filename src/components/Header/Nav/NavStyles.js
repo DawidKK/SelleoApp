@@ -6,6 +6,7 @@ const NavStyles = styled.ul`
   display: flex;
   font-size: 2rem;
   list-style: none;
+  flex-wrap: wrap;
   background: ${props => props.theme.bgLight};
   box-shadow: ${props => props.theme.bs};
 
