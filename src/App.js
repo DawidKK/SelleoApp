@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
+import HttpsRedirect from 'react-https-redirect'
 
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -24,21 +25,23 @@ function App() {
   const store = createStore(comments, applyMiddleware(thunk));
   return (
     <Provider store={store}>
-      <Router history={history}>
-        <ThemeProvider theme={Theme}>
-          <GlobalStyle />
-          <Navbar />
-          <Inner>
-            <Switch>
-              <Route path="/" exact />
-              <PrivateRoute path="/profile" component={Profile} />
-              <PrivateRoute path="/form" component={ScreensEventForm} />
-              <PrivateRoute path="/evaluation" component={ScreensCommentsList} />
-              <PrivateRoute path="/user" component={ScreensUserBoard} />
-            </Switch>
-          </Inner>
-        </ThemeProvider>
-      </Router>
+      <HttpsRedirect>
+        <Router history={history}>
+          <ThemeProvider theme={Theme}>
+            <GlobalStyle />
+            <Navbar />
+            <Inner>
+              <Switch>
+                <Route path="/" exact />
+                <PrivateRoute path="/profile" component={Profile} />
+                <PrivateRoute path="/form" component={ScreensEventForm} />
+                <PrivateRoute path="/evaluation" component={ScreensCommentsList} />
+                <PrivateRoute path="/user" component={ScreensUserBoard} />
+              </Switch>
+            </Inner>
+          </ThemeProvider>
+        </Router>
+      </HttpsRedirect>
     </Provider>
   );
 }
