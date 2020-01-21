@@ -2,8 +2,57 @@
 
 exports[`MyComponent displays proper date 1`] = `
 <div>
+  <h1>
+    Pretend this is Admin board, no kidding
+  </h1>
   <h2>
-    Today is 
+    You can be anyone you ever dream!
   </h2>
+  <label
+    for="user"
+  >
+    <input
+      id="user"
+      name="role.role"
+      onChange={[Function]}
+      type="radio"
+      value="user"
+    />
+    Do you want be 
+    user
+    ?
+  </label>
+  <label
+    for="admin"
+  >
+    <input
+      id="admin"
+      name="role.role"
+      onChange={[Function]}
+      type="radio"
+      value="admin"
+    />
+    Do you want be 
+    admin
+    ?
+  </label>
+  <h3>
+    Who can get access to this page?
+  </h3>
+  <Can
+    no={[Function]}
+    perform="admin-page:visit"
+    role="user"
+    yes={[Function]}
+  />
+  <h3>
+    What can you do on this page?
+  </h3>
+  <Can
+    no={[Function]}
+    perform="admin-page:edit"
+    role="user"
+    yes={[Function]}
+  />
 </div>
 `;
